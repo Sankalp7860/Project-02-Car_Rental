@@ -1,7 +1,6 @@
 import axios from 'axios';
-require('dotenv').config();
 // const API_URL = 'http://localhost:3000/api/auth';
-const API_URL = process.env.AUTH;
+const API_URL = import.meta.env.AUTH;
 
 const register = async (userData) => {
   const response = await axios.post(`${API_URL}/register`, userData);
