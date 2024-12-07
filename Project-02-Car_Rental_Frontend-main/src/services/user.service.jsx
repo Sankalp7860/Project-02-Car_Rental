@@ -1,8 +1,9 @@
 import axios from 'axios';
+require('dotenv').config();
 import { getToken } from '../utils/auth.utils';
 
-const API_URL = 'http://localhost:3000/api/users';
-
+// const API_URL = 'http://localhost:3000/api/users';
+const API_URL = process.env.USERS;
 const getUserProfile = async () => {
   const token = getToken();
   const response = await axios.get(`${API_URL}/profile`, {

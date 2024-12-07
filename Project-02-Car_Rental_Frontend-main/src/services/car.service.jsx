@@ -1,8 +1,9 @@
 import axios from "axios";
+require('dotenv').config();
 import { getToken } from "../utils/auth.utils";
 
-const API_URL = "http://localhost:3000/api/cars";
-
+// const API_URL = "http://localhost:3000/api/cars";
+const API_URL = process.env.CARS;
 const addCar = async (carData) => {
   const token = getToken();
   console.log(carData);
