@@ -1,0 +1,19 @@
+
+.logo {
+    margin-left: 1.3rem;
+	font-weight: 700 !important;
+	font-size: larger;
+	font-family: cursive !important;
+	letter-spacing: 2px !important;
+	padding: 0.5rem 0;
+	font-size: calc(1.3rem + 0.6vw);
+}
+
+.logo span {
+	color: #f60838;
+}
+.image{
+    scale: 1.2;
+    margin-left: 2rem;
+    margin-top: 4px;
+}

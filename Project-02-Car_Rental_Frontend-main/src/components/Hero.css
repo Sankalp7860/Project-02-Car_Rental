@@ -1,0 +1,22 @@
+.hero-btn{
+    border-radius: 0.375rem;
+    border-width: 2px;
+    --tw-border-opacity: 1;
+    border-color: #f60838;
+    background-color: #f60838;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    letter-spacing: 0.05em;
+    --tw-text-opacity: 1;
+    color: #fff;
+    transition-duration: 500ms;
+    margin-top: 20px;
+
+}
+.hero-btn:hover{
+    border-color: #f60838;
+    background-color: #000;
+    color: #fff;
+}

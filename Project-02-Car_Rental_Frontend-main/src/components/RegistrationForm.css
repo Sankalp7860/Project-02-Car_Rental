@@ -1,0 +1,166 @@
+.wrapper {
+  width: 490px !important;
+  background: transparent;
+  border:2px solid rgba(255,255,255,.2) ;
+  backdrop-filter: blur(30px);
+  box-shadow: 0 0 10px rgba(0,0,0,.2);
+  color: #fff;
+  border-radius: 10px;
+  padding: 5px 45px;
+}
+
+.wrapper h1 {
+  font-size: 36px;
+  text-align: center;
+}
+
+.wrapper .input-box {
+  position: relative;
+  /* width: 100%;
+  height: 50px;
+  margin: 30px 0; */
+  width: calc(50% - 5px); 
+  height: 50px;
+  margin: 18px 10px !important; 
+  display: inline-block;
+}
+
+.wrapper .input-box input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  outline: none;
+  border-radius: 40px;
+  font-size: 16px;
+  color: #fff;
+  padding: 20px 45px 20px 20px;
+}
+
+.wrapper .input-box input::placeholder {
+  color: whitesmoke;
+}
+
+.wrapper .input-box .icon {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+}
+.wrapper button {
+  width: 100%;
+  height: 50px;
+  background: linear-gradient(to right, #4facfe, #00f2fe);
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 700;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, border 0.3s ease; /* Added border transition */
+}
+
+.wrapper button:hover {
+  background: #000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border: 2px solid #fff; 
+  color: #fff; 
+}
+
+
+
+.wrapper .login-link {
+  font-size: 14.5px;
+  text-align: center;
+  margin: 20px 0 15px;
+}
+
+.wrapper .login-link p a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.wrapper .login-link p a:hover {
+  text-decoration: underline;
+}
+
+.city{
+  width: 45% !important;
+}
+.zip{
+  width: 45% !important;
+  float: right;
+}
+
+  .centralized {
+    min-width: 100vh;
+    min-height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+.wrapper .input-box {
+  position: relative;
+}
+
+.wrapper .input-box input,
+.wrapper .input-box select {
+  padding-left: 40px; 
+}
+
+.wrapper .input-box input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1); 
+  position: relative;
+  right: -30px;
+}
+
+.wrapper .input-box input[type="date"]::-moz-calendar-picker {
+  color: #ffffff; 
+  position: relative;
+  right: -30px;
+}
+
+.wrapper .input-box input[type="date"]::-ms-calendar-picker {
+  color: #ffffff; 
+  position: relative;
+  right: -30px;
+}
+
+.rent-box{
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+  width: 60% !important;
+  position: relative;
+  right: -10rem;
+}
+.rent-label{
+  display: flex !important;
+  width: 40% !important;
+  position: absolute!important;
+  bottom: 7px;
+  font-size: 25px;
+}
+.wrapper .input-box .upload-input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  outline: none;
+  border-radius: 40px;
+  font-size: 16px;
+  color: #fff;
+  padding: 20px 45px 20px 20px;
+  cursor: pointer;
+  line-height: 0.5;
+  vertical-align: top;
+}
+
+.wrapper .input-box .upload-input::file-selector-button {
+  display: none;
+}
