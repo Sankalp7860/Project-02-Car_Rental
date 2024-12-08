@@ -45,9 +45,6 @@ const Footer1 = () => {
                     </div>
                 </div>
             </div>
-            <div className='Last-footer'>
-                <p>Design By Group 4 </p>
-            </div>
         </>
     )
 }
