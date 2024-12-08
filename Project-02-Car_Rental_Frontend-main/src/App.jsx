@@ -10,9 +10,14 @@ import LoginPage from "./pages/LoginPage";
 import UserProfilePage from "./pages/UserProfilePage";
 import Logout from "./components/Logout";
 import Footer1 from "./components/Footer1";
+import { useLoading } from './utils/LoadingContext';
+import Loader from './components/Loader';
 
 function App() {
+  const { isLoading } = useLoading();
   return (
+    <>
+     {isLoading && <Loader />}
     <Router>
       <Navbar />
       <Routes>
@@ -29,6 +34,7 @@ function App() {
       </Routes>
       <Footer1 />
     </Router>
+    </>
   );
 }
 
