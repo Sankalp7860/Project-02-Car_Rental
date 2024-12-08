@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -10,6 +9,7 @@ import { FaUser, FaLock, FaPhoneAlt } from "react-icons/fa";
 import { MdEmail, MdLocationCity } from "react-icons/md";
 import { PiAddressBookFill } from "react-icons/pi";
 import { FaLocationDot } from "react-icons/fa6";
+import { useLoading } from "../utils/LoadingContext";
 
 const registrationSchema = z.object({
   name: z.string().min(1, "Name is required"),
@@ -17,7 +17,7 @@ const registrationSchema = z.object({
   password: z.string().min(6, "Password must be at least 6 characters"),
   phone: z
     .string()
-    .length(10, "Phone number must be exactly 10 digits"), // Updated validation rule
+    .length(10, "Phone number must be exactly 10 digits"),
   address: z.string().min(1, "Address is required"),
   city: z.string().min(1, "City is required"),
   zipCode: z.string().min(5, "Zip code must be at least 5 digits"),
@@ -25,6 +25,8 @@ const registrationSchema = z.object({
 
 function RegistrationForm() {
   const navigate = useNavigate();
+  const { showLoader, hideLoader } = useLoading(); // Use loading context
+
   const {
     register,
     handleSubmit,
@@ -36,10 +38,13 @@ function RegistrationForm() {
   const onSubmit = async (data) => {
     console.log(data);
     try {
-      await reg( data );
+      showLoader(); // Show loader during registration
+      await reg(data);
       navigate("/login");
     } catch (error) {
       console.error("Registration error:", error);
+    } finally {
+      hideLoader(); // Hide loader after registration
     }
   };
 
