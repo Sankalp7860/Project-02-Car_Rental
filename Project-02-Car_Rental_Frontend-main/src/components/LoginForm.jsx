@@ -7,11 +7,11 @@ import { FaUser, FaLock } from "react-icons/fa";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useLoading } from "../utils/LoadingContext";
 
 function LoginForm() {
   const navigate = useNavigate();
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
+  const { showLoader, hideLoader } = useLoading(); // Use loading context
   const [error, setError] = useState("");
 
   const schema = z.object({
@@ -19,16 +19,17 @@ function LoginForm() {
     password: z.string().min(4),
   });
 
-
-
   const handleSubmit1 = async (data) => {
     console.log(data);
     try {
-      const { token } = await login(data.email, data.password);
+      showLoader(); // Show loader when login starts
+      const { token } = await login(data.email, data.password, showLoader, hideLoader);
       setToken(token);
       navigate("/");
     } catch (error) {
-      setError(error.response.data.error);
+      setError(error.response?.data?.error || "Login failed");
+    } finally {
+      hideLoader(); // Hide loader when login completes
     }
   };
 
@@ -56,8 +57,6 @@ function LoginForm() {
             <input
               type="email"
               placeholder="Email"
-              // value={email}
-              // onChange={(e) => setEmail(e.target.value)}
               required
               {...register("email")}
             />
@@ -68,17 +67,20 @@ function LoginForm() {
             <input
               type="password"
               placeholder="Password"
-              // value={password}
-              // onChange={(e) => setPassword(e.target.value)}
               required
               {...register("password")}
             />
             <FaLock className="icon" />
           </div>
           <div>{errors.password && <span>{errors.password.message}</span>}</div>
-          <button type="submit" style={{
-            marginTop: "15px",
-          }}>Login</button>
+          <button
+            type="submit"
+            style={{
+              marginTop: "15px",
+            }}
+          >
+            Login
+          </button>
           <div className="register-link">
             <p>
               Don't have an account? <a href="/register">SignUp</a>
@@ -89,4 +91,5 @@ function LoginForm() {
     </div>
   );
 }
+
 export default LoginForm;
