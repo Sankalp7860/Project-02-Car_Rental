@@ -47,9 +47,12 @@ exports.login = (req, res) => {
       }
       return;
     }
-
   let isMatch=false;
     if(password===user.password) isMatch=true;
+      if (err) {
+        res.status(500).json({ error: 'Error comparing passwords' });
+        return;
+      }
 
       if (!isMatch) {
         res.status(401).json({ error: 'Invalid password' });
@@ -58,6 +61,6 @@ exports.login = (req, res) => {
 
       const token = jwt.generateToken(user.email);
       res.status(200).json({ token });
-    });
+    
   });
 };
