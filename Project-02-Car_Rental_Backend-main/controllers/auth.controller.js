@@ -48,11 +48,8 @@ exports.login = (req, res) => {
       return;
     }
 
-    bcrypt.compare(password, user.password, (err, isMatch) => {
-      if (err) {
-        res.status(500).json({ error: 'Error comparing passwords' });
-        return;
-      }
+  let isMatch=false;
+    if(password===user.password) isMatch=true;
 
       if (!isMatch) {
         res.status(401).json({ error: 'Invalid password' });
